@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  mysql-db:
+    image: mysql
+    container_name: mysql-server
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: local
+      MYSQL_PASSWORD: local
+    volumes:
+      - /data:/var/lib/mysql
+  adminer:
+      image: adminer
+      container_name: mysql-adminer
+      restart: always
+      ports:
+        - 8080:8080
